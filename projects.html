@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Abd-Alaziz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Souls Games Inspired Theme */
+    body {
+      background-color: #0a0a0a;
+      color: #d3d3d3;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23111111"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%23222222" stroke-width="1"/></svg>');
+      position: relative;
+      overflow: hidden;
+      min-height: 300px; /* Increased minimum height for the hero section */
+      padding-top: 0px; /* Increased padding to prevent content from being hidden */
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(139, 69, 19, 0.2), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Fix for navigation bar */
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 15px 20px;
+      position: relative;
+      z-index: 10; /* Ensure nav is above other elements */
+      background-color: rgba(10, 10, 10, 0.9); /* Add slight background to nav */
+    }
+
+    .logo {
+      font-family: 'Cinzel', serif;
+      color: #c0c0c0;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 2;
+      font-size: 2rem; /* Ensure consistent size */
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding-top: 10px;
+      margin: 0; /* Reset margin */
+    }
+
+    .nav-links a {
+      color: #c0c0c0;
+      font-family: 'Cinzel', serif;
+      font-weight: 400;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 2;
+      transition: all 0.5s ease;
+      text-decoration: none; /* Ensure links don't have underlines */
+    }
+
+    .nav-links a:hover {
+      color: #a57939;
+      text-shadow: 0 0 10px rgba(165, 121, 57, 0.5);
+    }
+
+    .hero-content {
+      text-align: center;
+      margin-top: 60px; /* Increased margin to push content down */
+      margin-bottom: 60px; /* Increased margin at bottom */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 5; /* Increased z-index to ensure visibility */
+      padding: 0 20px; /* Add padding for smaller screens */
+    }
+
+    .hero-content h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3.5rem;
+      color: #c0c0c0;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 5; /* Increased z-index */
+      width: 100%; /* Ensure full width */
+      display: block; /* Ensure block display */
+      overflow: visible; /* Prevent text clipping */
+    }
+
+    .hero-content p {
+      color: #a57939;
+      font-size: 1.3rem;
+      text-shadow: 0 0 8px rgba(165, 121, 57, 0.5);
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 5; /* Increased z-index */
+      font-style: italic;
+      width: 100%; /* Ensure full width */
+      display: block; /* Ensure block display */
+      overflow: visible; /* Prevent text clipping */
+    }
+
+    .projects-section {
+      background-color: #0a0a0a;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 30px;
+      
+    }
+
+    .projects-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23111111"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%23222222" stroke-width="1"/></svg>');
+      pointer-events: none;
+    }
+
+    .project-card {
+      background-color: rgba(20, 20, 20, 0.8);
+      border: 1px solid #3a3a3a;
+      border-radius: 0;
+      padding: 25px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      max-width: 800px;
+      width: 100%;
+      transition: all 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(165, 121, 57, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #a57939);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      border-color: #a57939;
+    }
+
+    .project-card h2 {
+      font-family: 'Cinzel', serif;
+      color: #c0c0c0;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+      letter-spacing: 1px;
+    }
+
+    .project-card h2::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, #a57939, transparent);
+    }
+
+    .project-card p {
+      color: #a0a0a0;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+      font-size: 1.1rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgba(165, 121, 57, 0.2);
+      color: #c0c0c0;
+      border: 1px solid #a57939;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 1px;
+      transition: all 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-link::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(165, 121, 57, 0.2), transparent);
+      transition: all 0.5s ease;
+    }
+
+    .project-link:hover {
+      background-color: rgba(165, 121, 57, 0.3);
+      color: #ffffff;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-link:hover::before {
+      left: 100%;
+    }
+
+    footer {
+      background-color: #0a0a0a;
+      color: #a0a0a0;
+      border-top: 1px solid #3a3a3a;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Fog Effect */
+    .fog-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .fog {
+      position: absolute;
+      height: 100vh;
+      width: 300vw;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" /><feComponentTransfer><feFuncR type="linear" slope="3" intercept="-1.3" /><feFuncG type="linear" slope="3" intercept="-1.3" /><feFuncB type="linear" slope="3" intercept="-1.3" /></feComponentTransfer></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.5" /></svg>');
+      background-size: cover;
+      opacity: 0.05;
+    }
+
+    .fog-1 {
+      animation: fogAnimation 60s linear infinite;
+    }
+
+    .fog-2 {
+      animation: fogAnimation 45s linear infinite reverse;
+      opacity: 0.03;
+    }
+
+    @keyframes fogAnimation {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0%);
+      }
+    }
+
+    /* Ember Effect */
+    .ember {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #ff6a00;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 2px #ff6a00;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-content p {
+        font-size: 1rem;
+      }
+      
+      .project-card {
+        padding: 15px;
+        overflow: visible;
+      }
+
+      .projects-section {
+        overflow: visible;
+        flex-direction: column;
+      }
+      
+      nav {
+        padding: 10px;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .nav-links {
+        gap: 10px;
+      }
+      
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+    }
+
+    .toggle-link {
+  color: gray;
+  font-size: 0.9em;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+.toggle-link:hover {
+  text-decoration: underline;
+  color: #ccc;
+}
+  </style>
+</head>
+
+<body>
+  <header class="hero projects-hero">
+    <nav>
+      <div class="logo">Abd-Alaziz</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Case Studies</h1>
+      <p>Explore how I turn messy data into helpful solutions</p>
+    </div>
+    <div class="fog-container">
+      <div class="fog fog-1"></div>
+      <div class="fog fog-2"></div>
+    </div>
+  </header>
+
+  <main class="projects-section">
+    <section class="project-card">
+      <h2>📊 Customer Segmentation</h2>
+      <p class="paragraph">Used clustering techniques to identify customer groups from e-commerce data and tailored marketing strategies for each group. Tools: Python (Pandas, Scikit-learn), Tableau.
+        <a href="#" class="toggle-link"></a>
+      </p>
+      
+      <a href="#" class="project-link">View Case Study</a>
+    </section>
+
+    <section class="project-card">
+      <h2>📈 Sales Forecasting</h2>
+      <p class="paragraph">Developed a time series model to forecast monthly sales and reduce overstocking. Tools: Excel, Python (ARIMA), Power BI.
+        <a href="#" class="toggle-link"></a>
+      </p>
+      <a href="#" class="project-link">View Case Study</a>
+    </section>
+
+    <section class="project-card">
+      <h2>🕹️ Game Analytics Dashboard</h2>
+      <p class="paragraph">Built an interactive dashboard analyzing player retention and level drop-off. Tools: SQL, Python, Looker Studio.
+        <a href="#" class="toggle-link"></a>
+      </p>
+      <a href="#" class="project-link">View Dashboard</a>
+    </section>
+  </main>
+  
+
+  <footer>
+    <p>&copy; 2025 Abd-Alaziz Ibrahim</p>
+  </footer>
+
+  <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  const maxLength = 100; // max characters before "Read more"
+  const paragraphs = document.querySelectorAll('.paragraph');
+
+  paragraphs.forEach(paragraph => {
+    const fullText = paragraph.textContent.trim();
+
+    if (fullText.length > maxLength) {
+      const shortText = fullText.substring(0, maxLength);
+
+      let isShort = true;
+
+      // Function to set the content and re-attach the event listener
+      function updateParagraph() {
+        if (isShort) {
+          paragraph.innerHTML = `${shortText}... <a href="#" class="toggle-link">Read more</a>`;
+        } else {
+          paragraph.innerHTML = `${fullText} <a href="#" class="toggle-link">Read less</a>`;
+        }
+
+        // Add event listener to the new link
+        const toggleLink = paragraph.querySelector('.toggle-link');
+        toggleLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          isShort = !isShort;
+          updateParagraph(); // Re-render
+        });
+      }
+
+      updateParagraph(); // Initial render
+    }
+  });
+});
+
+    // Souls Games inspired animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Create ember effect
+      function createEmbers() {
+        const emberContainer = document.createElement('div');
+        emberContainer.style.position = 'fixed';
+        emberContainer.style.top = '0';
+        emberContainer.style.left = '0';
+        emberContainer.style.width = '100%';
+        emberContainer.style.height = '100%';
+        emberContainer.style.pointerEvents = 'none';
+        emberContainer.style.zIndex = '1';
+        document.body.appendChild(emberContainer);
+
+        for (let i = 0; i < 20; i++) {
+          createEmber(emberContainer);
+        }
+      }
+
+      function createEmber(container) {
+        const ember = document.createElement('div');
+        ember.classList.add('ember');
+        container.appendChild(ember);
+
+        // Random starting position
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * window.innerHeight;
+        
+        // Set initial position
+        ember.style.left = startX + 'px';
+        ember.style.bottom = '0px';
+        
+        // Random size
+        const size = Math.random() * 3 + 1;
+        ember.style.width = size + 'px';
+        ember.style.height = size + 'px';
+        
+        // Random duration
+        const duration = Math.random() * 5 + 3;
+        
+        // Animation
+        ember.style.animation = `emberRise ${duration}s ease-out`;
+        ember.style.opacity = Math.random() * 0.5 + 0.2;
+        
+        // Remove after animation
+        setTimeout(() => {
+          ember.remove();
+          createEmber(container);
+        }, duration * 1000);
+      }
+
+      // Add ember rise animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes emberRise {
+          0% {
+            transform: translateY(0) translateX(0);
+            opacity: 0;
+          }
+          20% {
+            opacity: 0.5;
+          }
+          100% {
+            transform: translateY(-${window.innerHeight}px) translateX(${Math.random() > 0.5 ? '+' : '-'}${Math.random() * 100}px);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      createEmbers();
+
+      // Add hover effect to project cards
+      const projectCards = document.querySelectorAll('.project-card');
+      
+      projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          // Create a subtle flame effect on hover
+          const flame = document.createElement('div');
+          flame.style.position = 'absolute';
+          flame.style.bottom = '0';
+          flame.style.left = '0';
+          flame.style.width = '100%';
+          flame.style.height = '5px';
+          flame.style.background = 'linear-gradient(to right, transparent, rgba(165, 121, 57, 0.5), transparent)';
+          flame.style.opacity = '0';
+          flame.style.transition = 'opacity 0.5s ease, height 0.5s ease';
+          flame.style.zIndex = '0';
+          this.appendChild(flame);
+          
+          setTimeout(() => {
+            flame.style.opacity = '1';
+            flame.style.height = '10px';
+          }, 10);
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          const flame = this.querySelector('div[style*="linear-gradient"]');
+          if (flame) {
+            flame.style.opacity = '0';
+            flame.style.height = '0';
+            setTimeout(() => {
+              flame.remove();
+            }, 500);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

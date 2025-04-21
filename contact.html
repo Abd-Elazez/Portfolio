@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Abd-Alaziz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Bitter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Red Dead Redemption 2 Inspired Theme */
+    body {
+      background-color: #1a1412;
+      color: #e6dfd0;
+      font-family: 'Bitter', serif;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(26, 20, 18, 0.8), rgba(26, 20, 18, 0.8)), 
+                  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%231a1412"/><path d="M0 0 L200 200 M200 0 L0 200" stroke="%23352a25" stroke-width="1" stroke-opacity="0.2"/></svg>');
+      position: relative;
+      overflow: hidden;
+      min-height: 300px; /* Increased minimum height for the hero section */
+      padding-top: 0px; /* Increased padding to prevent content from being hidden */
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(153, 101, 21, 0.2), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Fix for navigation bar */
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 15px 20px;
+      position: relative;
+      z-index: 10; /* Ensure nav is above other elements */
+      background-color: rgba(26, 20, 18, 0.9); /* Add slight background to nav */
+    }
+
+    .logo {
+      font-family: 'Rye', cursive;
+      color: #c8b395;
+      text-shadow: 0 0 10px rgba(200, 179, 149, 0.3);
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 2;
+      font-size: 2rem; /* Ensure consistent size */
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding-top: 10px;
+      margin: 0; /* Reset margin */
+    }
+
+    .nav-links a {
+      color: #c8b395;
+      font-family: 'Bitter', serif;
+      font-weight: 400;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 2;
+      transition: all 0.5s ease;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      text-decoration: none; /* Ensure links don't have underlines */
+    }
+
+    .nav-links a:hover {
+      color: #996515;
+      text-shadow: 0 0 10px rgba(153, 101, 21, 0.5);
+    }
+
+    .hero-content {
+      text-align: center;
+      margin-top: 60px; /* Increased margin to push content down */
+      margin-bottom: 60px; /* Increased margin at bottom */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 5; /* Increased z-index to ensure visibility */
+      padding: 0 20px; /* Add padding for smaller screens */
+    }
+
+    .hero-content h1 {
+      font-family: 'Rye', cursive;
+      font-size: 3.5rem;
+      color: #c8b395;
+      text-shadow: 0 0 15px rgba(200, 179, 149, 0.3);
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 5; /* Increased z-index */
+      width: 100%; /* Ensure full width */
+      display: block; /* Ensure block display */
+      overflow: visible; /* Prevent text clipping */
+    }
+
+    .hero-content p {
+      color: #e6dfd0;
+      font-size: 1.2rem;
+      text-shadow: 0 0 8px rgba(230, 223, 208, 0.3);
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 5; /* Increased z-index */
+      font-style: italic;
+      width: 100%; /* Ensure full width */
+      display: block; /* Ensure block display */
+      overflow: visible; /* Prevent text clipping */
+    }
+
+    .contact-section {
+      background-color: #1a1412;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      overflow: visible;
+    }
+
+    .contact-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(rgba(26, 20, 18, 0.9), rgba(26, 20, 18, 0.9)),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%231a1412"/><path d="M0 0 L200 200 M200 0 L0 200" stroke="%23352a25" stroke-width="1" stroke-opacity="0.2"/></svg>');
+      pointer-events: none;
+    }
+
+    .contact-form, .social-links {
+      background-color: rgba(53, 42, 37, 0.7);
+      border: none;
+      border-radius: 0;
+      padding: 30px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      max-width: 800px;
+      width: 100%;
+      transition: all 0.5s ease;
+      position: relative;
+      overflow: visible;
+    }
+
+    .contact-form::before, .social-links::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 250 250"><filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" /><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.7 0"/></filter><rect width="100%" height="100%" filter="url(%23paper)" opacity="0.05"/></svg>');
+      pointer-events: none;
+      opacity: 0.1;
+    }
+
+    .contact-form::after, .social-links::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, #996515, transparent);
+    }
+
+    .contact-form:hover, .social-links:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      color: #c8b395;
+      font-family: 'Rye', cursive;
+      letter-spacing: 1px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      background-color: rgba(26, 20, 18, 0.7);
+      border: 1px solid #996515;
+      color: #e6dfd0;
+      font-family: 'Bitter', serif;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: #c8b395;
+      box-shadow: 0 0 10px rgba(200, 179, 149, 0.3);
+    }
+
+    .cta-button {
+      background-color: rgba(153, 101, 21, 0.7);
+      color: #e6dfd0;
+      border: 1px solid #996515;
+      padding: 12px 25px;
+      font-family: 'Rye', cursive;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(200, 179, 149, 0.2), transparent);
+      transition: all 0.5s ease;
+    }
+
+    .cta-button:hover {
+      background-color: rgba(153, 101, 21, 0.9);
+      color: #ffffff;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+
+    .social-links h2 {
+      font-family: 'Rye', cursive;
+      color: #c8b395;
+      text-shadow: 0 0 5px rgba(200, 179, 149, 0.3);
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+      letter-spacing: 2px;
+    }
+
+    .social-links ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .social-links li {
+      margin-bottom: 15px;
+    }
+
+    .social-links a {
+      color: #e6dfd0;
+      text-decoration: none;
+      font-family: 'Bitter', serif;
+      transition: all 0.3s ease;
+      display: inline-block;
+      padding: 5px 0;
+      position: relative;
+    }
+
+    .social-links a::before {
+      content: "➢";
+      margin-right: 10px;
+      color: #996515;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #c8b395;
+      transform: translateX(5px);
+    }
+
+    .social-links a:hover::before {
+      color: #c8b395;
+    }
+
+    footer {
+      background-color: #1a1412;
+      color: #a0a0a0;
+      border-top: 1px solid #996515;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Dust Effect */
+    .dust-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .dust-particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: rgba(200, 179, 149, 0.3);
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    /* Sepia Overlay */
+    .sepia-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(112, 66, 20, 0.1);
+      pointer-events: none;
+      z-index: 9998;
+      mix-blend-mode: multiply;
+    }
+
+    /* Paper Texture */
+    .paper-texture {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 250 250"><filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" /><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.7 0"/></filter><rect width="100%" height="100%" filter="url(%23paper)" opacity="0.05"/></svg>');
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.05;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-content p {
+        font-size: 1rem;
+      }
+      
+      .contact-form, .social-links {
+        padding: 20px;
+      }
+      
+      .social-links h2 {
+        font-size: 1.5rem;
+      }
+      
+      nav {
+        padding: 10px;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .nav-links {
+        gap: 10px;
+      }
+      
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sepia-overlay"></div>
+  <div class="paper-texture"></div>
+  
+  <header class="hero contact-hero">
+    <nav>
+      <div class="logo">Abd-Alaziz</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Let's Connect</h1>
+      <p>Reach out for collaborations, opportunities, or just to say hi!</p>
+    </div>
+    <div class="dust-container" id="dustContainer"></div>
+  </header>
+
+  <main class="contact-section">
+    <form class="contact-form" action="https://formsubmit.co/abdelazezi404@gmail.com" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit" class="cta-button">Send Message</button>
+    </form>
+
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/abd-elazez-ibrahim-000/" target="_blank" class="icon">
+        <img src="assets/linkedin.png" alt="LinkedIn">
+      </a>
+
+      <a href="https://wa.me/201558609518" target="_blank" class="icon">
+        <img src="assets/whatsapp (1).png" alt="What's App">
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Abd-Alaziz Ibrahim</p>
+  </footer>
+
+  <script>
+    // Red Dead Redemption 2 inspired animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Create dust particles effect
+      function createDustParticles() {
+        const dustContainer = document.getElementById('dustContainer');
+        
+        // Create multiple dust particles
+        for (let i = 0; i < 50; i++) {
+          createDustParticle(dustContainer);
+        }
+      }
+
+      function createDustParticle(container) {
+        const dust = document.createElement('div');
+        dust.classList.add('dust-particle');
+        container.appendChild(dust);
+        
+        // Random starting position
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * window.innerHeight;
+        dust.style.left = startX + 'px';
+        dust.style.top = startY + 'px';
+        
+        // Random size
+        const size = Math.random() * 3 + 1;
+        dust.style.width = size + 'px';
+        dust.style.height = size + 'px';
+        
+        // Random opacity
+        const opacity = Math.random() * 0.3 + 0.1;
+        dust.style.opacity = '0';
+        
+        // Random duration and delay
+        const duration = Math.random() * 8 + 4;
+        const delay = Math.random() * 10;
+        
+        // Animate dust
+        setTimeout(() => {
+          dust.style.transition = `opacity 2s ease, transform ${duration}s linear`;
+          dust.style.opacity = opacity.toString();
+          dust.style.transform = `translateY(${Math.random() * 100 - 50}px) translateX(${Math.random() * 100 - 50}px)`;
+          
+          // Remove and recreate dust
+          setTimeout(() => {
+            dust.remove();
+            createDustParticle(container);
+          }, duration * 1000);
+        }, delay * 1000);
+      }
+      
+      createDustParticles();
+
+      // Add vintage paper effect to form elements
+      const formElements = document.querySelectorAll('input, textarea');
+      
+      formElements.forEach(element => {
+        element.addEventListener('focus', function() {
+          this.style.transition = 'all 0.3s ease';
+          this.style.backgroundColor = 'rgba(26, 20, 18, 0.9)';
+          this.style.boxShadow = 'inset 0 0 10px rgba(0, 0, 0, 0.3)';
+        });
+        
+        element.addEventListener('blur', function() {
+          this.style.backgroundColor = 'rgba(26, 20, 18, 0.7)';
+          this.style.boxShadow = 'none';
+        });
+      });
+
+      // Add hover effect to button
+      const button = document.querySelector('.cta-button');
+      
+      button.addEventListener('mouseenter', function() {
+        // Create a subtle ripple effect
+        const ripple = document.createElement('div');
+        ripple.style.position = 'absolute';
+        ripple.style.top = '0';
+        ripple.style.left = '0';
+        ripple.style.width = '100%';
+        ripple.style.height = '100%';
+        ripple.style.backgroundColor = 'rgba(200, 179, 149, 0.1)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.borderRadius = '50%';
+        ripple.style.transition = 'transform 0.6s ease-out';
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.style.transform = 'scale(3)';
+          ripple.style.opacity = '0';
+        }, 10);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+
+      // Add old paper effect to form and social links sections
+      const sections = document.querySelectorAll('.contact-form, .social-links');
+      
+      sections.forEach(section => {
+        // Add subtle aging effect to corners
+        const cornerTL = document.createElement('div');
+        cornerTL.style.position = 'absolute';
+        cornerTL.style.top = '0';
+        cornerTL.style.left = '0';
+        cornerTL.style.width = '20px';
+        cornerTL.style.height = '20';
+(Content truncated due to size limit. Use line ranges to read in chunks)
